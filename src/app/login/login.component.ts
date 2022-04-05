@@ -35,10 +35,38 @@ export class LoginComponent implements OnInit {
     // console.log(this.pswd);
   }
 
-  // login(){
 
-  //   var acno=this.acno
-  //   var pswd=this.pswd
+  //login using event binding / two wayb binding
+  login(){
+
+    var acno=this.acno
+    var pswd=this.pswd
+
+    let database=this.database
+
+    if(acno in database){
+      if(pswd == database[acno]["password"]){
+        alert("login success!!")
+
+      }else{
+        alert("invalid password")
+      }
+    }else{
+      alert("user does not exist")
+    }
+
+  }
+
+  // login using template ref
+
+  // login(a:any,p:any){
+
+  //   console.log(a.value);
+    
+
+  //   //user entered acno nd passwd
+  //   var acno=a.value
+  //   var pswd=p.value
 
   //   let database=this.database
 
@@ -55,31 +83,7 @@ export class LoginComponent implements OnInit {
 
   // }
 
-  // login using template ref
-
-  login(a:any,p:any){
-
-    console.log(a.value);
-    
-
-    //user entered acno nd passwd
-    var acno=a.value
-    var pswd=p.value
-
-    let database=this.database
-
-    if(acno in database){
-      if(pswd == database[acno]["password"]){
-        alert("login success!!")
-
-      }else{
-        alert("invalid password")
-      }
-    }else{
-      alert("user does not exist")
-    }
-
-  }
+  //
 
 
 }
