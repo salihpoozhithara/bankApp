@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  currentUser :any
+
     //database
 
     database:any = {
@@ -48,6 +50,7 @@ export class DataService {
   
       if(acno in database){
         if(pswd == database[acno]["password"]){
+          this.currentUser = database[acno]["uname"]
           //already exist in db
           return true
   
